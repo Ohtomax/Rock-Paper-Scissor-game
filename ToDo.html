@@ -60,5 +60,26 @@
             </menu>
         </form>
     </dialog>
+
+        <dialog  id="notemodaledit" class="w-100 fixed py-[10px] px-[10px] rounded-[10px] fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white shadow-lg">
+        <form method="dialog" class="flex flex-col gap-[10px] px-[10px]">
+            <h1 class="font-bold text-[20px]">Create a Note</h1>
+
+            <label class="flex flex-col gap-[10px]">
+                Title
+                <input id="titleNoteEdit" placeholder="Enter your note title"  type="text" class="px-[10px] py-[10px] border border-blue-700 focus:border-blue-700  bg-blue-200 rounded-[10px]">
+            </label>
+
+            <label class="flex flex-col gap-[10px]">
+                Content
+                <textarea id="contentNoteEdit" placeholder="Enter your note content"  class="px-[10px] py-[10px] border border-blue-700 focus:border-blue-700  bg-blue-200 rounded-[10px]" id="" rows="5"></textarea>
+            </label>
+
+            <menu class="flex flex-row justify-end gap-[10px] mt-[10px]">
+                <button class="bg-[#828282] text-white  border py-[5px] px-[10px] rounded-[10px] " value="cancel">Cancel</button>
+                <button class="bg-[#000000] text-white font-bold border py-[5px] px-[13px] rounded-[10px] " onclick="savenewnote()" value="default" >Save</button>
+            </menu>
+        </form>
+    </dialog>
 </body>
 </html>
