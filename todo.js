@@ -215,8 +215,38 @@ function addtoarchive(){
         displaynotes(listofnotes)
 }
 
-function deleteall(){
-    typeofnotes = [];
-    localStorage.setItem('localnotes', JSON.stringify(listofnotes));
+function addtomain(){
+    const selectednotestobeaddtomain = document.querySelectorAll(".note-checkbox-arc:checked")
+
+    const idstobeaddedtomain = Array.from(selectednotestobeaddtomain).map(checkboxarc => checkboxarc.value)
+
+    listofarc.forEach(note => {
+        if(idstobeaddedtomain.includes(note.id)){
+            listofnotes.push({
+                id: note.id,
+                title: note.title,
+                content: note.content,
+                status: note.status
+            });
+            localStorage.setItem('localnotes', JSON.stringify(listofnotes))
+        }
+    })
+
+        listofarc = listofarc.filter(note => !idstobeaddedtomain.includes(note.id));
+
+        localStorage.setItem('listarc', JSON.stringify(listofarc));
+
+        displaynotes(listofarc)
+}
+
+function deleteallformain(){
+    listofnotes = []
+    localStorage.setItem('listofnotes', JSON.stringify(listofnotes))
+    displaynotes()
+}
+
+function deleteallforarc(){
+    listofnotes = []
+    localStorage.setItem('listofnotes', JSON.stringify(listofnotes))
     displaynotes()
 }
